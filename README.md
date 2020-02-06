@@ -1,6 +1,6 @@
 # PipeDream_OrganizacionComputadora
 
-!image "https://upload.wikimedia.org/wikipedia/en/b/b0/Pipedream.png"
+!image 'https://upload.wikimedia.org/wikipedia/en/b/b0/Pipedream.png'
 
 
 Pipe Dream , Pipe Mania  o Pipe Master , en si tienen muchos nombres y lleva muchos niveles
