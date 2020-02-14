@@ -1,0 +1,4 @@
+956 main
+588 dibujo
+100 ganar
+16 scoreF
