@@ -196,7 +196,7 @@ int main() {
                 if(x<0)
                     x=0;
             }
-            pintarTubos(x , posI);
+            seleccionarTubo(x , posI);
             colocarTubo(k , x, posI , ant, back);
         }
     }
