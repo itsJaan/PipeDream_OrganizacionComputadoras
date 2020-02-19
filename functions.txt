@@ -1,4 +1,5 @@
-956 main
 588 dibujo
+360 seleccionarTubo
+324 main
+240 colocarTubo
 100 ganar
-16 scoreF
