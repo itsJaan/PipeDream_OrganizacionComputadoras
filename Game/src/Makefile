@@ -1,6 +1,6 @@
 TARGET=pipedream.elf
 C_SOURCES=main.c
-ASM_SOURCES=start.S
+ASM_SOURCES=start.S funcionDibujo.S
 ASM_OUTPUT=$(TARGET).s
 ASMGEN_SOURCES=$(C_SOURCES:.c=.S)
 OBJ_FILES=$(ASM_SOURCES:.S=.o) $(ASMGEN_SOURCES:.S=.o) ../lib/libtinymips.a

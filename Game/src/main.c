@@ -1,15 +1,14 @@
 #include <screen.h>
 #include <keypad.h>
 
-void dibujo(){
+/*void funcionDibujo(){
     char x1[10]= "\x2\x3"; //Recto Arriba
     char x2[10]= "\x1\x1";//Recto Izquierdo
     for(int x=9 ; x<70 ; x+=1){
         set_cursor(5,x);
         set_color(RED, BLACK);
         puts("\x20");
-    }
-    for(int x=9 ; x<70 ; x+=1){
+        
         set_cursor(25,x);
         set_color(RED, BLACK);
         puts("\x20");
@@ -18,12 +17,11 @@ void dibujo(){
         set_cursor(x,8);
         set_color(RED, BLACK);
         puts("\x19");
-    }
-    for(int x=5 ; x<25 ; x+=1){
         set_cursor(x,69);
         set_color(RED, BLACK);
         puts("\x19");
     }
+    
     set_cursor(3,35);
     set_color(WHITE, BLACK);
     puts("PIPEDREAM");
@@ -53,8 +51,8 @@ void dibujo(){
     set_cursor(24,61);
     set_color(GREEN, BLACK);
     puts("E");
-}
-void ganar(bool gano){
+}*/
+/*void funcionGanar(bool gano){
     if(gano){
         clear_screen();
         set_color(WHITE, BLACK);
@@ -68,8 +66,8 @@ void ganar(bool gano){
         puts("HAZ PERDIDO :( !!");
         
     }
-}
-void seleccionarTubo(int x, int posI[2]){
+}*/
+/*void funcionSeleccionarTubo(int x, int posI[2]){
     char x1[10]=  "\x2\x3";//Recto 
     char x2[10]=  "\x1\x1";//Recto 
     char y1[10]=  "\x4\x5";//Curvo
@@ -102,7 +100,7 @@ void seleccionarTubo(int x, int posI[2]){
         set_color(GREEN, BLACK);
         puts(y4);               
     }
-}
+}*/
 void colocarTubo(int k, int x, int posI[2] , int ant , bool back){
     if(k==8){
         if(x==1){
@@ -179,7 +177,8 @@ int main() {
     set_cursor(29, 15);
     uint8_t f, b;
     get_color(&f, &b);
-    dibujo();
+
+    funcionDibujo();
 
     keypad_init();
     while ((posI[0]<25 && posI[0]>5) && (posI[1]<69 && posI[1]>8) && gano==false) {
@@ -196,10 +195,10 @@ int main() {
                 if(x<0)
                     x=0;
             }
-            seleccionarTubo(x , posI);
-            colocarTubo(k , x, posI , ant, back);
+    //        seleccionarTubo(x , posI);
+  //          colocarTubo(k , x, posI , ant, back);
         }
     }
-    ganar(gano);
+    //funcionGanar(gano);
     return 0;
 }
