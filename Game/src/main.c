@@ -51,8 +51,8 @@
     set_cursor(24,61);
     set_color(GREEN, BLACK);
     puts("E");
-}*/
-/*void funcionGanar(bool gano){
+}
+void funcionGanar(bool gano){
     if(gano){
         clear_screen();
         set_color(WHITE, BLACK);
@@ -66,8 +66,8 @@
         puts("HAZ PERDIDO :( !!");
         
     }
-}*/
-/*void funcionSeleccionarTubo(int x, int posI[2]){
+}
+void funcionSeleccionarTubo(int x, int posI[2]){
     char x1[10]=  "\x2\x3";//Recto 
     char x2[10]=  "\x1\x1";//Recto 
     char y1[10]=  "\x4\x5";//Curvo
@@ -113,7 +113,6 @@ void colocarTubo(int k, int x, int posI[2] , int ant , bool back){
                 ant=1;            
         }else if(x==2){
             if(ant==3) back = false;
-            if(ant == 0 || ant==1) return;
             if(back==true){
                 posI[0]=posI[0]-1;
             }else if(ant==4 && back==true){
@@ -178,6 +177,7 @@ int main() {
     uint8_t f, b;
     get_color(&f, &b);
 
+    //Funcion Ensamblador
     funcionDibujo();
 
     keypad_init();
@@ -195,10 +195,10 @@ int main() {
                 if(x<0)
                     x=0;
             }
-    //        seleccionarTubo(x , posI);
-  //          colocarTubo(k , x, posI , ant, back);
+            funcionSeleccionarTubo(x , posI);
+            colocarTubo(k , x, posI , ant, back);
         }
     }
-    //funcionGanar(gano);
+    funcionGanar(gano);
     return 0;
 }
