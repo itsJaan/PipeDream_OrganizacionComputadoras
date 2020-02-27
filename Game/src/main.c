@@ -1,6 +1,11 @@
 #include <screen.h>
 #include <keypad.h>
 
+#define TO_STR(ch) ( ( ((ch) >= 0 ) && ((ch) <= 9) )? (48 + (ch)) : ('a' + ((ch) - 10)) )
+
+//VARIABLES GLOBALES
+//FUNCIONES EN C
+
 /*void funcionDibujo(){
     char x1[10]= "\x2\x3"; //Recto Arriba
     char x2[10]= "\x1\x1";//Recto Izquierdo
@@ -51,9 +56,9 @@
     set_cursor(24,61);
     set_color(GREEN, BLACK);
     puts("E");
-}
-void funcionGanar(bool gano){
-    if(gano){
+}*//*
+void funcionGanar(bool ganar){
+    if(ganar){
         clear_screen();
         set_color(WHITE, BLACK);
         set_cursor(15, 35);
@@ -63,11 +68,11 @@ void funcionGanar(bool gano){
         clear_screen();
         set_color(WHITE, BLACK);
         set_cursor(15, 35);
-        puts("HAZ PERDIDO :( !!");
+        puts("HAZ PERDIDO !!");
         
     }
-}
-void funcionSeleccionarTubo(int x, int posI[2]){
+}*//*
+void funcionSeleccionarTubo(int x , int posI[2]){
     char x1[10]=  "\x2\x3";//Recto 
     char x2[10]=  "\x1\x1";//Recto 
     char y1[10]=  "\x4\x5";//Curvo
@@ -101,7 +106,7 @@ void funcionSeleccionarTubo(int x, int posI[2]){
         puts(y4);               
     }
 }*/
-void colocarTubo(int k, int x, int posI[2] , int ant , bool back){
+void colocarTubo(int k, int ant , int x , int posI[2] , bool back){
     if(k==8){
         if(x==1){
             if(back==true)
@@ -157,14 +162,13 @@ void colocarTubo(int k, int x, int posI[2] , int ant , bool back){
     delay_ms(100);
 }
 
-#define TO_STR(ch) ( ( ((ch) >= 0 ) && ((ch) <= 9) )? (48 + (ch)) : ('a' + ((ch) - 10)) )
-
 int main() {
     int posI[2];
-    int posF[2];
+    bool ganar;
     int x=0;
+    int posF[2];
     int ant=0;
-    bool gano = false;
+    ganar = false;
     bool back = false;
     posI[0]=9;
     posI[1]=12;
@@ -181,24 +185,24 @@ int main() {
     funcionDibujo();
 
     keypad_init();
-    while ((posI[0]<25 && posI[0]>5) && (posI[1]<69 && posI[1]>8) && gano==false) {
+    while ((posI[0]<25 && posI[0]>5) && (posI[1]<69 && posI[1]>8) && ganar==false) {
         uint8_t k = keypad_getkey();
-        if(posF[0]==posI[0] && posF[1]==posI[1]){
-                gano = true;
+        if(posF[0]==posI[0] && posF[1]==posI[0]){
+                ganar = true;
         }else{
             if(k==2){
-                x+=1;
+                x++;
                 if(x>6)
                     x=6;
             }else if(k==1){
-                x=x-1;
+                x--;
                 if(x<0)
                     x=0;
             }
-            funcionSeleccionarTubo(x , posI);
-            colocarTubo(k , x, posI , ant, back);
+            funcionSeleccionarTubo(x, posI);
+            colocarTubo(k, ant , x, posI, back);
         }
     }
-    funcionGanar(gano);
+    funcionGanar(ganar);
     return 0;
 }
