@@ -2,12 +2,15 @@
 
 .text
 funcionGanar:
-    addi $sp , $sp ,-5
+    addi $sp , $sp ,-16
     sw $ra, 0($sp)
     sw $a0, 4($sp)
+    sw $a1, 8($sp)
+    sw $s0, 12($sp)
     
+    move $s0, $a0
     jal clear_screen
-    bne $a0 , $zero, perdio
+    bne $s0 , $zero, perdio
     
     gano:
         addi $a0, $zero, 0xc                
@@ -149,6 +152,9 @@ funcionGanar:
 
     Fin:
         lw $ra, 0($sp)
-        addi $sp , $sp ,5 
+        lw $a0, 4($sp)
+        lw $a1, 8($sp)
+        lw $s0, 12($sp)
+        addi $sp , $sp ,16 
         jr $ra
 

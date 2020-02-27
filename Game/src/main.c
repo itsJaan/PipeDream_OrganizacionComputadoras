@@ -57,8 +57,8 @@
     set_color(GREEN, BLACK);
     puts("E");
 }*//*
-void funcionGanar(bool ganar){
-    if(ganar){
+void funcionGanar(int ganar){
+    if(ganar==1){
         clear_screen();
         set_color(WHITE, BLACK);
         set_cursor(15, 35);
@@ -164,11 +164,11 @@ void colocarTubo(int k, int ant , int x , int posI[2] , bool back){
 
 int main() {
     int posI[2];
-    bool ganar;
+    int ganar;
     int x=0;
     int posF[2];
     int ant=0;
-    ganar = false;
+    ganar = 0;
     bool back = false;
     posI[0]=9;
     posI[1]=12;
@@ -188,7 +188,7 @@ int main() {
     while ((posI[0]<25 && posI[0]>5) && (posI[1]<69 && posI[1]>8) && ganar==false) {
         uint8_t k = keypad_getkey();
         if(posF[0]==posI[0] && posF[1]==posI[0]){
-                ganar = true;
+                ganar = 1;
         }else{
             if(k==2){
                 x++;

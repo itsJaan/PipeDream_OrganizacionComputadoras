@@ -4,8 +4,12 @@
 .text
 
 funcionDibujo:
-    addi $sp , $sp ,-4
+    addi $sp , $sp ,-20
     sw $ra, 0($sp)
+    sw $a0, 4($sp)
+    sw $a1, 8($sp)
+    sw $s0, 12($sp)
+    sw $s2, 16($sp)
 
     li $s0, 9                 
     li $s2, 70    
@@ -337,5 +341,9 @@ funcionDibujo:
 
     Fin:
     	lw $ra, 0($sp)
-   	    addi $sp , $sp , 4
+        lw $a0, 4($sp)
+        lw $a1, 8($sp)
+        lw $s0, 12($sp)
+        lw $s2, 16($sp)
+   	    addi $sp , $sp , 20
         jr $ra
