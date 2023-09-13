@@ -15,3 +15,6 @@ Como puntos importante para hacer en el proyecto , me gustaria destacar:
      poner un conjunto de instrucciones al iniciar el juego.
 
 Para Finalizar la primera etapa del Pipe Dream vale destacar que debe ser jugable en el sentido de que tiene que poder ganar y perder , talvez con un cronometrador de tiempo , o  si no con un cierto numero de movimientos posibles para hacer, todo dependera de los recursos que sean brindados y el metodo mas sencillo de hacerlo debido al tiempo en el que debe completarse el juego.
+
+
+ESTA INCOMPLETO
